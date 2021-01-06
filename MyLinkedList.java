@@ -6,11 +6,9 @@ public class MyLinkedList{
     end = null;
     size = 0;
   }
-
   public int size(){
       return size;
   }
-
   public boolean add(String value){
     size++;
     if(start == null) {
@@ -18,19 +16,18 @@ public class MyLinkedList{
     }
     else if(end == null) {
       end = new Node(value);
-      start.setNext(end);
-      end.setPrev(start);
+      start.setNext(end.getData());
+      end.setPrev(start.getData());
     }
     else
     {
       Node temp = end;
-      end.getPrev().setNext(temp);
-      temp.setNext(new Node(value));
+      end.getPrev().setNext(temp.getData());
+      temp.setNext(value);
       end = temp.getNext();
     }
     return true;
   }
-
   public boolean add(int index, String value){
     Node temp = start;
     Node temp2;
@@ -42,13 +39,13 @@ public class MyLinkedList{
         temp = temp.getNext();
       }
       temp2 = temp.getNext();
-      temp.setNext(new Node(value));
-      temp.getNext().setNext(temp2);
-      temp.getNext().setPrev(temp);
-      temp2.setPrev(temp.getNext());
+      temp.setNext(value);
+      temp.getNext().setNext(temp2.getData());
+      temp.getNext().setPrev(temp.getData());
+      temp2.setPrev(temp.getNext().getData());
+      return true;
     }
   }
-
   public String get(int index){
     Node temp = start;
     for(int i = 0; i < index; i++){
@@ -58,7 +55,7 @@ public class MyLinkedList{
   }
   public String set(int index, String value){
     Node temp = new Node (get(index));
-    String x = temp.getdata();
+    String x = temp.getData();
     temp.setData(value);
     return x;
   }
@@ -72,5 +69,4 @@ public class MyLinkedList{
     x += end.getData();
     return x;
   }
-  //Any helper method that returns a Node object MUST BE PRIVATE!
 }
