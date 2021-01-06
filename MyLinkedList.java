@@ -62,6 +62,15 @@ public class MyLinkedList{
     temp.setData(value);
     return x;
   }
-  public String toString();
+  public String toString(){
+    String x = "";
+    Node temp = start;
+    for(int i = 0; i < size - 1; i++){
+      x += temp.getData();
+      x += ", ";
+    }
+    x += end.getData();
+    return x;
+  }
   //Any helper method that returns a Node object MUST BE PRIVATE!
 }
