@@ -49,7 +49,13 @@ public class MyLinkedList{
     }
   }
 
-  public String get(int index);
+  public String get(int index){
+    Node temp = start;
+    for(int i = 0; i < index; i++){
+      temp = temp.getNext();
+    }
+    return temp;
+  }
   public String set(int index, String value);
   public String toString();
   //Any helper method that returns a Node object MUST BE PRIVATE!
