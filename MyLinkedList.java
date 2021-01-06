@@ -54,10 +54,10 @@ public class MyLinkedList{
     for(int i = 0; i < index; i++){
       temp = temp.getNext();
     }
-    return temp;
+    return temp.getData();
   }
   public String set(int index, String value){
-    Node temp = get(index);
+    Node temp = new Node (get(index));
     String x = temp.getdata();
     temp.setData(value);
     return x;
